@@ -140,6 +140,9 @@
   .about{margin-top:-1px;border-top:0}.solution-hero{margin-top:-1px}.solution-hero .veil{background:linear-gradient(180deg,#06100d 0%,rgba(6,16,13,.78) 5%,transparent 18%,transparent 80%,rgba(6,16,13,.74) 94%,#06100d 100%),linear-gradient(90deg,rgba(3,8,13,.92) 0%,rgba(3,8,13,.65) 34%,rgba(3,8,13,.08) 73%)}.trusted{margin-top:-1px;border-top:0}.project-showcase{margin-top:-1px;background:radial-gradient(circle at 25% 42%,rgba(40,209,124,.035),transparent 38%),linear-gradient(180deg,#050b0a 0%,#07100d 12%,#050a0d 100%)}.data-center-section{margin-top:-1px}.sustainability{margin-top:-1px;border-top:0;background:linear-gradient(180deg,#05090d 0%,#06110d 13%,#06110d 100%)}.brand-partners,.mega-footer{margin-top:-1px}
   @media(max-width:900px){.bp-editorial{display:block}.bp-editorial-info{min-height:64svh;padding:105px 22px 30px}.bp-editorial-info .bp-logo{margin-top:28px;min-height:92px}.bp-editorial-info .bp-logo img{max-width:min(390px,90vw);max-height:92px}.bp-editorial-info .bp-title{width:max-content;max-width:none;margin:20px 0 24px;font-size:clamp(30px,8.4vw,46px);line-height:.94;white-space:nowrap}.bp-editorial-category{padding-top:16px}.bp-editorial-category strong{font-size:22px}.bp-brand-list{margin-top:30px}.bp-brand-list button{height:48px;font-size:10px}.bp-editorial-visual{min-height:58svh}.bp-visual-card{left:18px;right:18px;bottom:18px;padding:18px}.bp-visual-card strong{font-size:28px}}
 
+/* Solutions background: decoded images crossfade without zoom or a second fade-out. */
+.hero .bg{transform:none!important;transition:opacity .55s ease!important;will-change:opacity}
+.hero .bg.next{transform:none!important}
 </style>
 </head>
 <body>
@@ -315,8 +318,29 @@ const slides=[
 {tag:'Energy Saving',descriptor:'Efficiency Improvement',title:'System Optimisation & Efficiency Improvement',desc:'We convert audit findings into targeted upgrades, controls and system optimisation - reducing energy consumption while protecting the performance your facility depends on.',img:'assets/solutions/energy-saving.webp'},
 {tag:'Preventive Maintenance',descriptor:'Planned System Care',title:'Planned Maintenance for Long-Term System Reliability',desc:'Unplanned failures create operational risk and unpredictable cost. Sahapie combines scheduled inspection, condition monitoring and documented maintenance to keep critical systems dependable and extend equipment life.',img:'assets/solutions/preventive-maintenance.webp'}];
 let current=0,busy=false;const bg=document.querySelector('#bg'),nextBg=document.querySelector('#nextBg'),cards=document.querySelector('#cards');
+let visibleBg=bg,hiddenBg=nextBg;
+const imageReady=new Map(slides.map(s=>{const image=new Image();image.src=s.img;const ready=image.decode?image.decode().catch(()=>{}):new Promise(resolve=>{image.onload=resolve;image.onerror=resolve});return [s.img,ready]}));
+bg.style.opacity='1';bg.style.zIndex='1';nextBg.style.opacity='0';nextBg.style.zIndex='2';
 slides.forEach((s,i)=>{cards.insertAdjacentHTML('beforeend',`<article class="card" data-i="${i}"><img src="${s.img}" alt="${s.tag}"><div class="card-copy"><small>${s.descriptor}</small><h3>${s.tag}</h3></div></article>`)});
-function render(first=false){const s=slides[current],title=document.querySelector('#title');document.querySelector('#eyebrow').textContent=s.tag;title.textContent=s.title;title.classList.toggle('compact',s.title.length>38);document.querySelector('#desc').textContent=s.desc;document.querySelector('#num').textContent=String(current+1).padStart(2,'0');document.querySelector('#bar').style.transform=`scaleX(${(current+1)/slides.length})`;const cardItems=[...document.querySelectorAll('.card')];cardItems.forEach((c,i)=>c.classList.toggle('active',i===current));const activeCard=cardItems[current];requestAnimationFrame(()=>requestAnimationFrame(()=>{if(!activeCard)return;const maxLeft=Math.max(0,cards.scrollWidth-cards.clientWidth),cardsRect=cards.getBoundingClientRect(),activeRect=activeCard.getBoundingClientRect(),activeLeft=activeRect.left-cardsRect.left+cards.scrollLeft;let targetLeft=current<2?0:activeLeft-Math.max(16,(cards.clientWidth-activeCard.offsetWidth)/2);targetLeft=Math.max(0,Math.min(maxLeft,targetLeft));if(first)cards.scrollTo({left:targetLeft,behavior:'auto'});else cards.scrollTo({left:targetLeft,behavior:'smooth'})}));if(first){bg.style.backgroundImage=`url('${s.img}')`;return}busy=true;nextBg.style.backgroundImage=`url('${s.img}')`;nextBg.classList.remove('next');document.querySelector('#copy').classList.remove('flash');requestAnimationFrame(()=>document.querySelector('#copy').classList.add('flash'));setTimeout(()=>{bg.style.backgroundImage=`url('${s.img}')`;nextBg.classList.add('next');busy=false},800)}
+function render(first=false){const s=slides[current],title=document.querySelector('#title');document.querySelector('#eyebrow').textContent=s.tag;title.textContent=s.title;title.classList.toggle('compact',s.title.length>38);document.querySelector('#desc').textContent=s.desc;document.querySelector('#num').textContent=String(current+1).padStart(2,'0');document.querySelector('#bar').style.transform=`scaleX(${(current+1)/slides.length})`;const cardItems=[...document.querySelectorAll('.card')];cardItems.forEach((c,i)=>c.classList.toggle('active',i===current));const activeCard=cardItems[current];requestAnimationFrame(()=>requestAnimationFrame(()=>{if(!activeCard)return;const maxLeft=Math.max(0,cards.scrollWidth-cards.clientWidth),cardsRect=cards.getBoundingClientRect(),activeRect=activeCard.getBoundingClientRect(),activeLeft=activeRect.left-cardsRect.left+cards.scrollLeft;let targetLeft=current<2?0:activeLeft-Math.max(16,(cards.clientWidth-activeCard.offsetWidth)/2);targetLeft=Math.max(0,Math.min(maxLeft,targetLeft));if(first)cards.scrollTo({left:targetLeft,behavior:'auto'});else cards.scrollTo({left:targetLeft,behavior:'smooth'})}));if(first){bg.style.backgroundImage=`url('${s.img}')`;return}
+busy=true;
+imageReady.get(s.img).then(()=>{
+  hiddenBg.style.transition='none';
+  hiddenBg.style.opacity='0';
+  hiddenBg.style.zIndex='2';
+  visibleBg.style.zIndex='1';
+  hiddenBg.style.backgroundImage=`url('${s.img}')`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    hiddenBg.style.transition='opacity .55s ease';
+    hiddenBg.style.opacity='1';
+    setTimeout(()=>{
+      visibleBg.style.transition='none';
+      visibleBg.style.opacity='0';
+      [visibleBg,hiddenBg]=[hiddenBg,visibleBg];
+      busy=false;
+    },570);
+  }));
+});}
 function move(d){if(busy)return;current=(current+d+slides.length)%slides.length;render()}document.querySelector('#next').onclick=()=>move(1);document.querySelector('#prev').onclick=()=>move(-1);cards.onclick=e=>{const c=e.target.closest('.card');if(c&&!busy){current=+c.dataset.i;render()}};document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1)});const resetSolutionRail=()=>{if(current===0)cards.scrollTo({left:0,behavior:'auto'})};render(true);window.addEventListener('load',()=>requestAnimationFrame(resetSolutionRail),{once:true});window.addEventListener('pageshow',()=>requestAnimationFrame(resetSolutionRail));
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.16});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){let ticking=false;const updateParallax=()=>{const section=document.querySelector('.about'),rect=section.getBoundingClientRect(),offset=(innerHeight*.5-(rect.top+rect.height*.5));document.querySelectorAll('.about-photo').forEach(photo=>photo.style.translate=`0 ${offset*Number(photo.dataset.speed)}px`);ticking=false};addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateParallax);ticking=true}},{passive:true});updateParallax()}
