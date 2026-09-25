@@ -76,9 +76,9 @@
     .trusted-head{text-align:center;padding:0 4.5vw;margin:0 auto 50px}.trusted h2{font:600 clamp(44px,5.2vw,72px)/.92 "Barlow Condensed",sans-serif;letter-spacing:-.018em;text-transform:uppercase;margin:0}.trusted-subtitle{margin:15px 0 0;color:#98a7a3;font-size:14px;line-height:1.6;letter-spacing:.025em}
     .trusted-marquee{position:relative;overflow:hidden;padding:17px 0;mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
     .trusted-track{display:flex;width:max-content;animation:trusted-marquee 34s linear infinite;will-change:transform}.trusted-marquee:hover .trusted-track{animation-play-state:paused}.trusted-group{display:flex;align-items:center;gap:clamp(70px,7vw,130px);padding-right:clamp(70px,7vw,130px)}
-    .trusted-logo{display:block;width:auto;max-width:230px;height:clamp(34px,3.5vw,55px);object-fit:contain;opacity:.52;filter:grayscale(1);transition:opacity .3s ease,filter .3s ease}.trusted-logo.logo-tall{height:clamp(48px,5vw,72px);max-width:96px}.trusted-logo:hover{opacity:1;filter:grayscale(1) brightness(1.18)}.trusted-logo.logo-mrt{height:106px;max-width:128px}.trusted-logo.logo-boon-rawd{height:110px;max-width:205px}.trusted-logo.logo-chula{height:108px;max-width:176px;opacity:.88;filter:none}.trusted-logo.logo-chula:hover{opacity:1;filter:none}
+    .trusted-logo{display:block;width:auto;max-width:230px;height:clamp(34px,3.5vw,55px);object-fit:contain;opacity:.52;filter:grayscale(1);transition:opacity .3s ease,filter .3s ease}.trusted-logo.logo-tall{height:clamp(48px,5vw,72px);max-width:96px}.trusted-logo:hover{opacity:1;filter:grayscale(1) brightness(1.18)}.trusted-logo.logo-central{height:80px;max-width:220px}.trusted-logo.logo-mrt{height:106px;max-width:128px}.trusted-logo.logo-boon-rawd{height:110px;max-width:205px}.trusted-logo.logo-sukhothai{height:105px;max-width:188px}.trusted-logo.logo-space{height:85px;max-width:225px}.trusted-logo.logo-voyage{height:85px;max-width:225px}.trusted-logo.logo-chula{height:108px;max-width:176px;opacity:.88;filter:none}.trusted-logo.logo-chula:hover{opacity:1;filter:none}
     @keyframes trusted-marquee{to{transform:translateX(-50%)}}
-    @media(max-width:640px){.trusted{padding:46px 0 74px}.trusted-head{margin-bottom:34px;padding:0 22px}.trusted-subtitle{font-size:13px}.trusted-marquee{mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%)}.trusted-track{animation-duration:25s}.trusted-group{gap:54px;padding-right:54px}.trusted-logo{height:30px;max-width:155px}.trusted-logo.logo-tall{height:42px;max-width:58px}.trusted-logo.logo-mrt{height:75px;max-width:90px}.trusted-logo.logo-boon-rawd{height:80px;max-width:150px}.trusted-logo.logo-chula{height:78px;max-width:136px}}
+    @media(max-width:640px){.trusted{padding:46px 0 74px}.trusted-head{margin-bottom:34px;padding:0 22px}.trusted-subtitle{font-size:13px}.trusted-marquee{mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%)}.trusted-track{animation-duration:25s}.trusted-group{gap:54px;padding-right:54px}.trusted-logo{height:30px;max-width:155px}.trusted-logo.logo-tall{height:42px;max-width:58px}.trusted-logo.logo-central{height:55px;max-width:150px}.trusted-logo.logo-mrt{height:75px;max-width:90px}.trusted-logo.logo-boon-rawd{height:80px;max-width:150px}.trusted-logo.logo-sukhothai{height:75px;max-width:135px}.trusted-logo.logo-space{height:61px;max-width:160px}.trusted-logo.logo-voyage{height:61px;max-width:160px}.trusted-logo.logo-chula{height:78px;max-width:136px}}
     .project-showcase{--project-green:#28d17c;display:grid;grid-template-columns:minmax(390px,38vw) minmax(0,62vw);align-items:start;background:radial-gradient(circle at 25% 42%,rgba(40,209,124,.035),transparent 38%),linear-gradient(180deg,#07100d 0%,#050a0d 100%);color:#f2f6f2}
     .project-intro{position:sticky;top:0;height:100vh;padding:clamp(54px,6vw,92px) clamp(34px,5vw,76px);display:flex;flex-direction:column;overflow:hidden;border-right:1px solid rgba(255,255,255,.055)}
     .project-intro:after{content:"";position:absolute;inset:auto -8% -12% 22%;height:55%;opacity:.12;background:linear-gradient(125deg,transparent 33%,rgba(40,209,124,.4) 33.2%,transparent 33.5%),linear-gradient(35deg,transparent 51%,rgba(255,255,255,.15) 51.2%,transparent 51.5%);clip-path:polygon(0 42%,70% 0,100% 32%,100% 100%,0 100%);pointer-events:none}
@@ -185,7 +185,7 @@
   <div class="trusted-marquee" aria-label="Selected Sahapie Engineering clients">
     <div class="trusted-track">
       <div class="trusted-group">
-        <img class="trusted-logo" src="assets/clients/central.png" alt="Central">
+        <img class="trusted-logo logo-central" src="assets/clients/central.png" alt="Central Group">
         <img class="trusted-logo" src="assets/clients/iconsiam.png" alt="ICONSIAM">
         <img class="trusted-logo" src="assets/clients/one-bangkok.png" alt="One Bangkok">
         <img class="trusted-logo" src="assets/clients/emsphere.png" alt="EMSPHERE">
@@ -194,10 +194,13 @@
       
         <img class="trusted-logo logo-mrt" src="assets/clients/mrt.png" alt="MRT">
         <img class="trusted-logo logo-boon-rawd" src="assets/clients/boon-rawd-brewery.png" alt="Boon Rawd Brewery">
+        <img class="trusted-logo logo-sukhothai" src="assets/clients/sukhothai-bangkok.png" alt="The Sukhothai Bangkok Hotel">
+        <img class="trusted-logo logo-space" src="assets/clients/space-pattaya.png" alt="Grande Centre Point Space Pattaya">
+        <img class="trusted-logo logo-voyage" src="assets/clients/voyage-pattaya.png" alt="Grande Centre Point Voyage Pattaya">
         <img class="trusted-logo logo-chula" src="assets/clients/chulalongkorn-hospital.png" alt="King Chulalongkorn Memorial Hospital">
       </div>
       <div class="trusted-group" aria-hidden="true">
-        <img class="trusted-logo" src="assets/clients/central.png" alt="">
+        <img class="trusted-logo logo-central" src="assets/clients/central.png" alt="">
         <img class="trusted-logo" src="assets/clients/iconsiam.png" alt="">
         <img class="trusted-logo" src="assets/clients/one-bangkok.png" alt="">
         <img class="trusted-logo" src="assets/clients/emsphere.png" alt="">
@@ -206,6 +209,9 @@
       
         <img class="trusted-logo logo-mrt" src="assets/clients/mrt.png" alt="">
         <img class="trusted-logo logo-boon-rawd" src="assets/clients/boon-rawd-brewery.png" alt="">
+        <img class="trusted-logo logo-sukhothai" src="assets/clients/sukhothai-bangkok.png" alt="">
+        <img class="trusted-logo logo-space" src="assets/clients/space-pattaya.png" alt="">
+        <img class="trusted-logo logo-voyage" src="assets/clients/voyage-pattaya.png" alt="">
         <img class="trusted-logo logo-chula" src="assets/clients/chulalongkorn-hospital.png" alt="">
       </div>
     </div>
