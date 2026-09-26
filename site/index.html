@@ -193,6 +193,12 @@
     .project-card p{font-size:12px;line-height:1.45;max-width:100%;margin-bottom:14px}
   }
   @media(max-width:350px){.about-stats{grid-template-columns:1fr}.about-stat+.about-stat{border-left:0;border-top:1px solid #ffffff24;padding-left:0}}
+  @media(max-width:520px){
+    .partner-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 18px}
+    .partner-logos .partner-logo{min-width:0;width:100%;overflow:hidden}
+    .partner-logos .partner-logo img{width:auto;height:auto;max-width:100%;max-height:64px;object-fit:contain}
+    .partner-logos .partner-logo.logo-flowcon img{max-width:100%;max-height:48px}
+  }
   @media(max-width:850px){
     .dc-hero{display:flex;flex-direction:column;overflow:visible}
     .dc-hero:after{display:none}
