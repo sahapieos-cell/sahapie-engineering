@@ -193,10 +193,28 @@
     .project-card p{font-size:12px;line-height:1.45;max-width:100%;margin-bottom:14px}
   }
   @media(max-width:350px){.about-stats{grid-template-columns:1fr}.about-stat+.about-stat{border-left:0;border-top:1px solid #ffffff24;padding-left:0}}
+  /* Keep the editorial and solutions controls inside a phone viewport. */
+  .bp-cta i,.cta i,.about-btn span{font-family:Arial,sans-serif;font-variant-emoji:text;font-weight:400;line-height:1}
+  @media(max-width:640px){
+    .bp-brand-list button{height:54px;font-size:12px}
+    .about-btn span{font-size:17px}
+    .solution-hero .stage{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:58px 22px 44px}
+    .solution-hero .copy{width:100%;max-width:100%}
+    .solution-hero .copy h1{font-size:clamp(44px,11.5vw,57px);line-height:.9;overflow-wrap:normal;word-break:normal;margin:22px 0}
+    .solution-hero .rail{width:100%;min-width:0;margin:28px 0 0}
+    .solution-hero .cards{width:100%;gap:12px;padding:8px 0 18px}
+    .solution-hero .card{flex:0 0 44%;height:190px}
+    .solution-hero .card.active{flex-basis:60%;height:230px}
+    .solution-hero .controls{width:100%;margin-top:8px}
+    .solution-hero .controls button{flex:0 0 44px}
+    .solution-hero .progress{min-width:32px;margin-left:4px}
+    .solution-hero .count{font-size:38px;white-space:nowrap}
+    .solution-hero .count small{font-size:13px}
+  }
 </style>
 </head>
 <body>
-<section class="bp-editorial" id="brand-products" aria-label="Exclusive brand partners"><header class="bp-header"><a class="brand" href="/" aria-label="Sahapie Engineering home"><img src="assets/sahapie-logo-green.png" alt="Sahapie Engineering"></a><nav id="mobileSiteNav" aria-label="Main navigation"><a href="/products/">Products</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/our-projects/">Our Projects</a><a href="/about/">About</a><a href="/contact/">Contact Us</a></nav><div class="lang">EN / TH</div><button class="mobile-menu-toggle" type="button" aria-controls="mobileSiteNav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button></header><div class="bp-editorial-info"><div class="bp-kicker">Sahapie Engineering</div><div class="bp-logo" id="bpLogo"></div><h1 class="bp-title">Exclusive <em>Partnership.</em><br>Engineered for Thailand.</h1><div class="bp-editorial-category"><span>Product category</span><strong id="bpCategory"></strong></div><a class="bp-cta" href="#brand-partners"><i>↗</i> Explore brand & products</a><div class="bp-brand-list" id="bpBrandList"></div></div><div class="bp-editorial-visual"><div class="bp-editorial-image" id="bpEditorialImage"></div><div class="bp-visual-card"><div><span class="bp-category">Exclusive Partner in Thailand</span><strong id="bpVisualBrand"></strong></div><div class="bp-visual-controls"><button id="bpPrev" aria-label="Previous brand">←</button><button id="bpNext" aria-label="Next brand">→</button></div></div></div></section><section class="about" id="about">
+<section class="bp-editorial" id="brand-products" aria-label="Exclusive brand partners"><header class="bp-header"><a class="brand" href="/" aria-label="Sahapie Engineering home"><img src="assets/sahapie-logo-green.png" alt="Sahapie Engineering"></a><nav id="mobileSiteNav" aria-label="Main navigation"><a href="/products/">Products</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/our-projects/">Our Projects</a><a href="/about/">About</a><a href="/contact/">Contact Us</a></nav><div class="lang">EN / TH</div><button class="mobile-menu-toggle" type="button" aria-controls="mobileSiteNav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button></header><div class="bp-editorial-info"><div class="bp-kicker">Sahapie Engineering</div><div class="bp-logo" id="bpLogo"></div><h1 class="bp-title">Exclusive <em>Partnership.</em><br>Engineered for Thailand.</h1><div class="bp-editorial-category"><span>Product category</span><strong id="bpCategory"></strong></div><a class="bp-cta" href="#brand-partners"><i>↗︎</i> Explore brand & products</a><div class="bp-brand-list" id="bpBrandList"></div></div><div class="bp-editorial-visual"><div class="bp-editorial-image" id="bpEditorialImage"></div><div class="bp-visual-card"><div><span class="bp-category">Exclusive Partner in Thailand</span><strong id="bpVisualBrand"></strong></div><div class="bp-visual-controls"><button id="bpPrev" aria-label="Previous brand">←</button><button id="bpNext" aria-label="Next brand">→</button></div></div></div></section><section class="about" id="about">
   <div class="about-grid">
     <div class="about-copy reveal">
       <div class="about-kicker">About Sahapie Engineering</div>
@@ -213,7 +231,7 @@
         <div class="about-stat"><b>100+</b><strong>Landmark Projects</strong><span>Across commercial &amp; industrial facilities</span></div>
         <div class="about-stat"><b>7</b><strong>Core Solutions</strong><span>From EPC to lifecycle maintenance</span></div>
       </div>
-      <div class="about-actions"><a class="about-btn primary" href="#about">Discover Our Company <span>↗</span></a><a class="about-btn" href="#solutions">Explore Our Solutions <span>↗</span></a></div>
+      <div class="about-actions"><a class="about-btn primary" href="#about">Discover Our Company <span>↗︎</span></a><a class="about-btn" href="#solutions">Explore Our Solutions <span>↗︎</span></a></div>
     </div>
     <div class="about-collage reveal" aria-label="Sahapie Engineering projects and operations">
       <figure class="about-photo" data-speed=".08"><img src="assets/about/mockup-grundfos-pump.webp" alt="Commercial water pump system mockup"><figcaption><strong>High-Efficiency Pump Systems</strong><span>Grundfos · One Bangkok</span></figcaption></figure>
@@ -225,7 +243,7 @@
 </section><section class="hero solution-hero" id="solutions">
   <div class="bg" id="bg"></div><div class="bg next" id="nextBg"></div><div class="veil"></div>
   <div class="stage">
-    <div class="copy" id="copy"><div class="eyebrow" id="eyebrow"></div><h1 id="title"></h1><p id="desc"></p><a class="cta" href="#projects"><i>↗</i> Explore our capabilities</a></div>
+    <div class="copy" id="copy"><div class="eyebrow" id="eyebrow"></div><h1 id="title"></h1><p id="desc"></p><a class="cta" href="#projects"><i>↗︎</i> Explore our capabilities</a></div>
     <div class="rail"><div class="cards" id="cards"></div><div class="controls"><button id="prev" aria-label="Previous solution">‹</button><button id="next" aria-label="Next solution">›</button><div class="progress"><span id="bar"></span></div><div class="count"><span id="num">01</span><small> / 07</small></div></div></div>
   </div>
 </section>
