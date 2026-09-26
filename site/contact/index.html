@@ -18,13 +18,30 @@
     @media(max-width:900px){.site-header{height:74px;padding:0 22px}.brand{width:205px;height:48px}.site-nav{display:none}.lang{margin-left:auto}.contact-page{padding:70px 22px 90px}.contact-layout{grid-template-columns:1fr;gap:64px}.intro{padding:0}.lede{margin-bottom:44px}.map-placeholder{min-height:220px}.form-shell{padding:42px 26px}.form-shell:before{left:26px}.footer-panel{padding:62px 22px 28px}.footer-main{grid-template-columns:1fr;gap:46px}.footer-brand{padding:0}.footer-brand img{width:min(76vw,280px)}.footer-legal{margin-top:52px;flex-direction:column}.footer-legal-links{flex-wrap:wrap}}
     @media(max-width:600px){h1{font-size:clamp(62px,20vw,88px)}.contact-row{grid-template-columns:1fr;gap:8px}.field-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.form-shell{padding:38px 18px;border-radius:8px}.form-shell:before{left:18px}.inquiry-options{gap:8px}.inquiry-option span{padding:0 13px}.submit-row{align-items:stretch;flex-direction:column}.submit{width:100%}.upload{align-items:flex-start;flex-direction:column}.success{min-height:520px;padding:20px}.footer-legal-links{flex-direction:column;gap:13px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-  </style>
+  
+    .mobile-menu-toggle{display:none}
+    @media(max-width:900px){
+      .site-header{gap:12px;justify-content:space-between}
+      .site-header .brand{width:min(62vw,205px);flex:0 1 auto}
+      .site-header .lang{display:none}
+      .mobile-menu-toggle{display:flex;flex:0 0 44px;width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px;border:1px solid rgba(255,255,255,.27);border-radius:50%;background:rgba(4,12,8,.7);color:white;cursor:pointer}
+      .mobile-menu-toggle span{width:18px;height:2px;background:currentColor;transition:transform .25s,opacity .25s}
+      .site-header.menu-open .mobile-menu-toggle span:first-child{transform:translateY(7px) rotate(45deg)}
+      .site-header.menu-open .mobile-menu-toggle span:nth-child(2){opacity:0}
+      .site-header.menu-open .mobile-menu-toggle span:last-child{transform:translateY(-7px) rotate(-45deg)}
+      .site-header .site-nav{display:none;position:absolute;top:74px;left:0;right:0;margin:0;padding:16px 22px 24px;background:#06100d;border-bottom:1px solid rgba(40,209,124,.35);box-shadow:0 18px 32px #0009;flex-direction:column;gap:0}
+      .site-header.menu-open .site-nav{display:flex}
+      .site-nav a{display:flex;align-items:center;min-height:46px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+      .site-nav a.active:after{display:none}
+    }
+    @media(max-width:600px){.contact-page{padding-top:54px}.contact-layout{gap:48px}.lede{margin-bottom:34px}.form-shell{padding:34px 18px}.form-intro{margin-bottom:32px}.inquiry-options{margin-bottom:32px}.form-group{margin-top:30px;padding-top:28px}.map-frame{height:240px}.footer-main{gap:38px}}
+</style>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="/" aria-label="Sahapie Engineering home"><img src="/assets/sahapie-logo-green.png" alt="Sahapie Engineering — We Offer Only Smart Solution"></a>
-    <nav class="site-nav" aria-label="Main navigation"><a href="/products/">Products</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/our-projects/">Our Projects</a><a href="/about/">About</a><a class="active" href="/contact/" aria-current="page">Contact Us</a></nav>
-    <div class="lang">EN / TH</div>
+    <nav class="site-nav" id="mobileSiteNav" aria-label="Main navigation"><a href="/products/">Products</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/our-projects/">Our Projects</a><a href="/about/">About</a><a class="active" href="/contact/" aria-current="page">Contact Us</a></nav>
+    <div class="lang">EN / TH</div><button class="mobile-menu-toggle" type="button" aria-controls="mobileSiteNav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
   <main class="contact-page">
     <div class="contact-layout">
@@ -125,5 +142,8 @@
     document.querySelector('#privacyLink').addEventListener('click',e=>e.preventDefault());
     form.addEventListener('submit',async e=>{e.preventDefault();if(submitting)return;let valid=fields.map(validateField).every(Boolean);const consent=document.querySelector('#consent');const consentError=document.querySelector('#consentError');if(!consent.checked){consentError.textContent='Please provide consent before submitting.';valid=false}else consentError.textContent='';const file=fileInput.files[0];if(file&&!/\.(pdf|docx|xlsx|jpe?g|png)$/i.test(file.name)){document.querySelector('#attachmentError').textContent='Please choose a supported file type.';valid=false}if(form.companyFax.value)return;if(!valid){form.querySelector('[aria-invalid="true"]')?.focus();return}submitting=true;submitButton.disabled=true;submitButton.innerHTML='Submitting…';await new Promise(resolve=>setTimeout(resolve,700));document.querySelector('#formContent').hidden=true;document.querySelector('#successMessage').classList.add('is-visible');submitting=false});
   </script>
+<script>
+(()=>{const header=document.querySelector('.site-header'),button=header?.querySelector('.mobile-menu-toggle');if(!button)return;const close=()=>{header.classList.remove('menu-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu')};button.addEventListener('click',()=>{const open=!header.classList.contains('menu-open');header.classList.toggle('menu-open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close menu':'Open menu')});header.querySelectorAll('nav a').forEach(link=>link.addEventListener('click',close));document.addEventListener('keydown',event=>{if(event.key==='Escape')close()})})();
+</script>
 </body>
 </html>
