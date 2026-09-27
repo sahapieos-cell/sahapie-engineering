@@ -74,6 +74,8 @@
     @media(max-width:640px){.about{padding:84px 22px}.about h2{font-size:clamp(52px,16vw,76px)}.about-description{font-size:15px}.about-stats{grid-template-columns:1fr}.about-stat{padding:20px 0}.about-stat+.about-stat{padding-left:0;border-left:0;border-top:1px solid #ffffff1e}.about-actions{flex-direction:column;align-items:stretch}.about-collage{height:520px}.about-photo:nth-child(1){width:76%;height:39%}.about-photo:nth-child(2){width:38%;height:45%;top:20%}.about-photo:nth-child(3){left:2%;width:50%;height:38%}.about-photo:nth-child(4){right:2%;width:44%;height:30%}}
     .trusted{position:relative;overflow:hidden;margin-top:-1px;padding:54px 0 92px;background:linear-gradient(180deg,#06100d 0%,#06100d 46%,#050b0a 100%)}
     .trusted-head{text-align:center;padding:0 4.5vw;margin:0 auto 50px}.trusted h2{font:600 clamp(44px,5.2vw,72px)/.92 "Barlow Condensed",sans-serif;letter-spacing:-.018em;text-transform:uppercase;margin:0}.trusted-subtitle{margin:15px 0 0;color:#98a7a3;font-size:14px;line-height:1.6;letter-spacing:.025em}
+    .trusted-head h3{max-width:100%;margin:22px auto 0;font:600 clamp(28px,3.2vw,44px)/1.02 "Barlow Condensed",sans-serif;letter-spacing:-.015em;text-transform:uppercase;white-space:nowrap}.trusted-subtitle{max-width:1050px;margin:18px auto 0;font-size:clamp(14px,1.15vw,17px);line-height:1.65}
+    @media(max-width:1050px){.trusted-head h3{white-space:normal}}
     .trusted-marquee{position:relative;overflow:hidden;padding:17px 0;mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
     .trusted-track{display:flex;width:max-content;animation:trusted-marquee 34s linear infinite;will-change:transform}.trusted-marquee:hover .trusted-track{animation-play-state:paused}.trusted-group{display:flex;align-items:center;gap:clamp(70px,7vw,130px);padding-right:clamp(70px,7vw,130px)}
     .trusted-logo{display:block;width:auto;max-width:230px;height:clamp(34px,3.5vw,55px);object-fit:contain;opacity:.52;filter:grayscale(1);transition:opacity .3s ease,filter .3s ease}.trusted-logo.logo-tall{height:clamp(48px,5vw,72px);max-width:96px}.trusted-logo:hover{opacity:1;filter:grayscale(1) brightness(1.18)}.trusted-logo.logo-central{height:80px;max-width:220px}.trusted-logo.logo-mrt{height:106px;max-width:128px}.trusted-logo.logo-boon-rawd{height:110px;max-width:205px}.trusted-logo.logo-sukhothai{height:105px;max-width:188px}.trusted-logo.logo-space{height:85px;max-width:225px}.trusted-logo.logo-voyage{height:85px;max-width:225px}.trusted-logo.logo-kasemrad{height:126px;max-width:150px;opacity:.9;filter:none}.trusted-logo.logo-kasemrad:hover{opacity:1;filter:none}.trusted-logo.logo-medpark{height:76px;max-width:230px}.trusted-logo.logo-bangkok{height:82px;max-width:230px;opacity:.9;filter:none}.trusted-logo.logo-bangkok:hover{opacity:1;filter:none}.trusted-logo.logo-paragon{height:100px;max-width:166px}.trusted-logo.logo-forestias{height:102px;max-width:110px}.trusted-logo.logo-chula{height:108px;max-width:176px;opacity:.88;filter:none}.trusted-logo.logo-chula:hover{opacity:1;filter:none}
@@ -254,6 +256,13 @@
     .solution-hero .count{font-size:38px;white-space:nowrap}
     .solution-hero .count small{font-size:13px}
   }
+  @media(max-width:640px){
+    .about-stats{grid-template-columns:1fr}
+    .about-stat,.about-stat+.about-stat{padding:17px 0;border-left:0}
+    .about-stat+.about-stat{border-top:1px solid #ffffff24}
+    .about-stat strong{font-size:11px;letter-spacing:.08em}
+    .about-stat span{font-size:10px;letter-spacing:.04em}
+  }
 </style>
 </head>
 <body>
@@ -261,18 +270,18 @@
   <div class="about-grid">
     <div class="about-copy reveal">
       <div class="about-kicker">About Sahapie Engineering</div>
-      <h2>35+ Years of <em>Engineering Excellence</em></h2>
+      <h2>35+ Years of <em>Engineering<br>Experience</em></h2>
       <div class="about-description">
-        <p><strong>Engineering solutions built for performance.</strong></p>
-        <p>For over 35 years, Sahapie Engineering has delivered integrated engineering solutions for commercial buildings, industrial facilities, and leading developments across Thailand.</p>
-        <p>From consultation and system design to installation, energy optimization, and long-term maintenance, we engineer reliable systems that improve performance, efficiency, and operational confidence.</p>
-        <p>Our experience spans some of Thailand’s most recognized buildings and facilities, where reliability and long-term performance matter most.</p>
-        <p><strong>We don’t just supply equipment.<br>We engineer solutions built to perform.</strong></p>
+        <p><strong>Engineering solutions backed by technical expertise and dependable support.</strong></p>
+        <p>For more than 35 years, Sahapie Engineering has served industries across Thailand with technical products and engineering solutions for essential systems.</p>
+        <p>Our portfolio spans pumps, HVAC and cooling, valves and flow control, water treatment, and pipe joining. Technical services, maintenance, genuine replacement parts, and after-sales support help customers keep those systems operating reliably.</p>
+        <p>Our seven solution areas cover project delivery, maintenance, data center solutions, and energy performance—connecting established engineering experience with the needs of today’s buildings and industries.</p>
+        <p><strong>Engineered for performance. Supported for the long term.</strong></p>
       </div>
       <div class="about-stats">
-        <div class="about-stat"><b>35+</b><strong>Years of Experience</strong><span>Engineering excellence in Thailand</span></div>
-        <div class="about-stat"><b>100+</b><strong>Landmark Projects</strong><span>Across commercial &amp; industrial facilities</span></div>
-        <div class="about-stat"><b>7</b><strong>Core Solutions</strong><span>From EPC to lifecycle maintenance</span></div>
+        <div class="about-stat"><b>35+</b><strong>Years of Experience</strong><span>Serving industries in Thailand</span></div>
+        <div class="about-stat"><b>10</b><strong>Brands in Product Profile</strong><span>Across essential systems</span></div>
+        <div class="about-stat"><b>7</b><strong>Core Solutions</strong><span>From project delivery to lifecycle support</span></div>
       </div>
       <div class="about-actions"><a class="about-btn primary" href="#about">Discover Our Company <span>↗︎</span></a><a class="about-btn" href="#solutions">Explore Our Solutions <span>↗︎</span></a></div>
     </div>
@@ -293,7 +302,8 @@
 <section class="trusted" aria-labelledby="trusted-title">
   <div class="trusted-head reveal">
     <h2 id="trusted-title">Trusted By</h2>
-    <p class="trusted-subtitle">Thailand's leading organizations and landmark developments.</p>
+    <h3>Engineering support for the systems that matter.</h3>
+    <p class="trusted-subtitle">Sahapie works with teams responsible for the performance of commercial buildings and industrial facilities across Thailand—providing technical products, service, and long-term support.</p>
   </div>
   <div class="trusted-marquee" aria-label="Selected Sahapie Engineering clients">
     <div class="trusted-track">
