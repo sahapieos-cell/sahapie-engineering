@@ -85,7 +85,7 @@
     .project-intro{position:sticky;top:0;height:100vh;padding:clamp(54px,6vw,92px) clamp(34px,5vw,76px);display:flex;flex-direction:column;overflow:hidden;border-right:1px solid rgba(255,255,255,.055)}
     .project-intro:after{content:"";position:absolute;inset:auto -8% -12% 22%;height:55%;opacity:.12;background:linear-gradient(125deg,transparent 33%,rgba(40,209,124,.4) 33.2%,transparent 33.5%),linear-gradient(35deg,transparent 51%,rgba(255,255,255,.15) 51.2%,transparent 51.5%);clip-path:polygon(0 42%,70% 0,100% 32%,100% 100%,0 100%);pointer-events:none}
     .project-eyebrow{display:flex;align-items:center;gap:16px;color:#a9b5ad;font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase}.project-eyebrow:before{content:"";width:36px;height:2px;background:var(--project-green)}
-    .project-intro h2{max-width:610px;margin:48px 0 24px;font:600 clamp(48px,4.5vw,72px)/.9 "Barlow Condensed",sans-serif;letter-spacing:-.03em;text-transform:uppercase}.project-lede{max-width:500px;margin:0;color:#9aa7a0;font-size:16px;line-height:1.65}
+    .project-intro h2{max-width:610px;margin:48px 0 24px;font:600 clamp(53px,4.95vw,79px)/.9 "Barlow Condensed",sans-serif;letter-spacing:-.03em;text-transform:uppercase}.project-lede{max-width:500px;margin:0;color:#9aa7a0;font-size:16px;line-height:1.65}
     .project-intro h2{margin-top:38px}.project-explore{position:relative;z-index:2;display:inline-flex;align-items:center;gap:15px;align-self:flex-start;margin-top:28px;color:#f2f6f2;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.project-explore span{color:var(--project-green);font-size:19px;line-height:1}.project-explore:hover{color:var(--project-green)}
     .project-nav{position:relative;z-index:2;margin-top:clamp(50px,8vh,90px);border-top:1px solid rgba(255,255,255,.14)}.project-nav a{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;height:64px;border-bottom:1px solid rgba(255,255,255,.14);color:#748079;text-decoration:none;font-size:13px;letter-spacing:.13em;text-transform:uppercase;transition:color .35s ease,padding .35s ease,border-color .35s ease,box-shadow .35s ease}.project-nav a.active{color:var(--project-green);padding-left:16px;border-bottom-color:var(--project-green);box-shadow:inset 4px 0 0 var(--project-green)}
     .project-footnote{position:relative;z-index:2;margin-top:auto;color:#5f6b64;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
@@ -93,6 +93,10 @@
     .project-media{position:absolute;inset:0;z-index:-2;overflow:hidden}.project-media img,.project-media video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}.project-media img{z-index:0}.project-media video{z-index:1}.project-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,8,7,.87) 0%,rgba(3,8,7,.42) 43%,rgba(3,8,7,.08) 76%),linear-gradient(0deg,rgba(3,8,7,.68),transparent 58%);pointer-events:none}
     .project-card-content{position:absolute;left:clamp(30px,4vw,68px);right:32px;bottom:clamp(32px,6vh,68px);max-width:620px}.project-kicker{color:#bdc7c0;font-size:11px;font-weight:600;letter-spacing:.27em;text-transform:uppercase}.project-card h3{margin:16px 0 13px;font:600 clamp(52px,6vw,92px)/.88 "Barlow Condensed",sans-serif;letter-spacing:-.035em;text-transform:uppercase}.project-card p{max-width:520px;margin:0 0 25px;color:#bdc7c0;font-size:15px;line-height:1.6}.project-link{display:inline-flex;gap:17px;align-items:center;color:#fff;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}.project-link:before{content:"";width:38px;height:2px;background:var(--project-green)}.project-link span{font-size:20px;color:var(--project-green)}.project-number{position:absolute;right:24px;top:20px;color:rgba(255,255,255,.62);font-size:12px;letter-spacing:.18em}.project-active-line{position:absolute;left:0;top:0;height:3px;width:0;background:var(--project-green);transition:width .65s ease}.project-card.active .project-active-line{width:100%}
     @media(max-width:850px){.project-showcase{display:block}.project-intro{position:relative;height:auto;padding:66px 22px 32px;border:0}.project-intro:after,.project-footnote{display:none}.project-intro h2{margin-top:36px;font-size:clamp(48px,14vw,68px)}.project-lede{font-size:15px}.project-nav{display:flex;gap:18px;overflow-x:auto;margin-top:36px;border:0;scrollbar-width:none}.project-nav::-webkit-scrollbar{display:none}.project-nav a{flex:0 0 auto;display:flex;height:44px;padding:0 2px;border-bottom:1px solid rgba(255,255,255,.14)}.project-nav a.active{padding:0 8px;box-shadow:none}.project-stack{padding:24px 0 80px 14px;gap:14px}.project-card{height:auto;min-height:0;max-height:none;aspect-ratio:16/10;opacity:.5}.project-card.active{opacity:1}.project-card-content{left:24px;right:22px;bottom:25px}.project-card h3{font-size:clamp(42px,12vw,58px)}.project-card p{font-size:13px;margin-bottom:18px;max-width:88%}.project-kicker{font-size:9px}.project-number{right:18px;top:16px}}
+    .project-card-sukhothai{height:clamp(540px,70vh,760px);max-height:none}.project-card-sukhothai .project-card-content{max-width:750px}.project-card-sukhothai h3{font-size:clamp(47px,5vw,76px)}.project-card-sukhothai h4{margin:0 0 15px;color:#f2f6f2;font-size:clamp(12px,1.2vw,16px);line-height:1.35;letter-spacing:.11em;text-transform:uppercase}.project-card-sukhothai p{max-width:720px;margin-bottom:0;font-size:14px;line-height:1.6}.project-card-sukhothai .project-media img{object-position:center 48%}.project-card-central .project-kicker{text-transform:none;letter-spacing:.1em}
+    @media(min-width:851px) and (max-height:900px){.project-intro{padding-top:clamp(36px,5vh,58px);padding-bottom:30px}.project-intro h2{margin-top:26px}.project-nav{margin-top:clamp(18px,3vh,34px)}.project-nav a{height:clamp(45px,6vh,57px)}}
+    @media(max-width:850px){.project-card-sukhothai{min-height:560px;height:auto;aspect-ratio:auto}.project-card-sukhothai .project-card-content{left:24px;right:24px;bottom:28px}.project-card-sukhothai h3{font-size:clamp(41px,8vw,62px)}.project-card-sukhothai h4{font-size:12px}.project-card-sukhothai p{max-width:100%;margin-bottom:0;font-size:13px;line-height:1.5}}
+    @media(max-width:520px){.project-card-sukhothai{min-height:650px}.project-card-sukhothai h3{font-size:clamp(37px,10vw,50px)}.project-card-sukhothai p{font-size:12px}}
     @media(prefers-reduced-motion:reduce){.project-media video{display:none}.project-card{opacity:1}.project-active-line{display:none}}
     .data-center-section{--dc-green:#28d17c;position:relative;overflow:hidden;min-height:88vh;background:linear-gradient(180deg,#050a0d 0%,#071018 44%,#05090d 100%);color:#f4f8fb}
     .dc-hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;border-top:1px solid rgba(255,255,255,.07)}.dc-hero-media{position:absolute;inset:-3% 0;will-change:transform}.dc-hero-media img{width:100%;height:106%;object-fit:cover;object-position:center;display:block;filter:saturate(.72) contrast(1.05)}.dc-hero-media:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 72% 69%,rgba(40,209,124,.1),transparent 24%),radial-gradient(ellipse at 52% 48%,rgba(40,209,124,.055),transparent 19%);mix-blend-mode:screen;pointer-events:none}.dc-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,12,.95) 0%,rgba(3,8,12,.76) 38%,rgba(3,8,12,.26) 68%,rgba(3,8,12,.18) 100%),linear-gradient(0deg,#071018 0%,transparent 34%,rgba(2,7,10,.2) 100%)}
@@ -196,6 +200,9 @@
     .project-card-content{left:18px;right:18px;bottom:20px}
     .project-card h3{font-size:clamp(38px,10vw,48px);margin:10px 0}
     .project-card p{font-size:12px;line-height:1.45;max-width:100%;margin-bottom:14px}
+    .project-card.project-card-sukhothai{min-height:650px;height:auto;aspect-ratio:auto}
+    .project-card-sukhothai .project-card-content{left:18px;right:18px;bottom:20px}
+    .project-card-sukhothai p{margin-bottom:0}
   }
   @media(max-width:350px){.about-stats{grid-template-columns:1fr}.about-stat+.about-stat{border-left:0;border-top:1px solid #ffffff24;padding-left:0}}
   .about-photo:nth-child(2) img{object-position:71% center}
@@ -358,25 +365,31 @@
     <p class="project-lede">Every facility presents a different system challenge. Explore Sahapie’s projects through the work delivered, the equipment applied, and the performance objectives behind each solution.</p>
     <a class="project-explore" href="/our-projects/">Explore Our Projects <span aria-hidden="true">→</span></a>
     <div class="project-nav" role="navigation" aria-label="Featured projects">
-      <a href="#project-central" class="active"><span>01</span><span>Central</span></a>
-      <a href="#project-iconsiam"><span>02</span><span>ICONSIAM</span></a>
-      <a href="#project-amata"><span>03</span><span>Amata Nakorn</span></a>
+      <a href="#project-sukhothai" class="active"><span>01</span><span>The Sukhothai Bangkok</span></a>
+      <a href="#project-central"><span>02</span><span>Central Group</span></a>
+      <a href="#project-iconsiam"><span>03</span><span>ICONSIAM</span></a>
+      <a href="#project-amata"><span>04</span><span>Amata Nakorn</span></a>
     </div>
     <div class="project-footnote">People · Technology · A Sustainable Tomorrow</div>
   </aside>
   <div class="project-stack">
-    <article class="project-card active" id="project-central" data-project="project-central">
-      <div class="project-active-line"></div><div class="project-number">01 / 03</div>
+    <article class="project-card project-card-sukhothai active" id="project-sukhothai" data-project="project-sukhothai">
+      <div class="project-active-line"></div><div class="project-number">01 / 04</div>
+      <div class="project-media"><img src="assets/projects/sukhothai-bangkok-exterior.jpg" alt="The Sukhothai Bangkok hotel exterior"></div>
+      <div class="project-card-content"><div class="project-kicker">Energy Saving Project</div><h3>The Sukhothai Bangkok</h3><h4>A High-Performance Chiller Plant Proposal</h4><p>The proposed upgrade brings together oil-free magnetic-bearing chillers, high-performance pumps and cooling towers, water treatment, automatic condenser tube cleaning, and a chiller plant management system. The scope also includes associated piping, valves, and electrical works.</p></div>
+    </article>
+    <article class="project-card project-card-central" id="project-central" data-project="project-central">
+      <div class="project-active-line"></div><div class="project-number">02 / 04</div>
       <div class="project-media"><img src="assets/projects/central-poster.jpg" alt="Conceptual premium commercial development"><video muted loop playsinline preload="auto" poster="assets/projects/central-poster.jpg" aria-hidden="true"><source src="assets/projects/central-loop.mp4" type="video/mp4"></video></div>
-      <div class="project-card-content"><div class="project-kicker">Featured Project</div><h3>Central</h3><p>Integrated engineering support for a high-performance commercial environment.</p><a class="project-link" href="#project-central">View Project <span>→</span></a></div>
+      <div class="project-card-content"><div class="project-kicker">PUMP • Grundfos, Flowcon</div><h3>Central Group</h3><p>Integrated engineering support for a high-performance commercial environment.</p><a class="project-link" href="#project-central">View Project <span>→</span></a></div>
     </article>
     <article class="project-card" id="project-iconsiam" data-project="project-iconsiam">
-      <div class="project-active-line"></div><div class="project-number">02 / 03</div>
+      <div class="project-active-line"></div><div class="project-number">03 / 04</div>
       <div class="project-media"><img src="assets/projects/iconsiam-poster.jpg" alt="Conceptual riverside landmark development"><video muted loop playsinline preload="auto" poster="assets/projects/iconsiam-poster.jpg" aria-hidden="true"><source src="assets/projects/iconsiam-loop.mp4" type="video/mp4"></video></div>
       <div class="project-card-content"><div class="project-kicker">Featured Project</div><h3>ICONSIAM</h3><p>Engineering solutions supporting one of Bangkok's landmark riverside destinations.</p><a class="project-link" href="#project-iconsiam">View Project <span>→</span></a></div>
     </article>
     <article class="project-card" id="project-amata" data-project="project-amata">
-      <div class="project-active-line"></div><div class="project-number">03 / 03</div>
+      <div class="project-active-line"></div><div class="project-number">04 / 04</div>
       <div class="project-media"><img src="assets/projects/amata-poster.jpg" alt="Conceptual large-scale industrial estate"><video muted loop playsinline preload="auto" poster="assets/projects/amata-poster.jpg" aria-hidden="true"><source src="assets/projects/amata-loop.mp4" type="video/mp4"></video></div>
       <div class="project-card-content"><div class="project-kicker">Featured Project</div><h3>Amata Nakorn</h3><p>Reliable infrastructure and engineering support for large-scale industrial operations.</p><a class="project-link" href="#project-amata">View Project <span>→</span></a></div>
     </article>
