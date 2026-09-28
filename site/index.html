@@ -236,9 +236,14 @@
     .partner-logos .partner-logo img{width:auto;height:auto;max-width:100%;max-height:64px;object-fit:contain}
     .partner-logos .partner-logo.logo-flowcon img{max-width:100%;max-height:48px}
   }
+  /* Keep every Global Brand Partners logo monochrome despite the brand-specific rules above. */
+  .brand-partners .partner-logos .partner-logo img{filter:grayscale(1) brightness(0) invert(1) drop-shadow(0 2px 16px rgba(0,0,0,.22));mix-blend-mode:normal}
+  .brand-partners .partner-logos .partner-logo.logo-cla-val img{filter:grayscale(1) brightness(1.7) contrast(2) drop-shadow(0 2px 16px rgba(0,0,0,.22))}
+  .brand-partners .partner-logos .partner-logo.logo-evapco img{filter:grayscale(1) brightness(1.45) contrast(1.08) drop-shadow(0 2px 16px rgba(0,0,0,.22))}
+  .brand-partners .partner-logos .partner-logo.logo-straub img{filter:grayscale(1) invert(1) brightness(1.25) drop-shadow(0 2px 16px rgba(0,0,0,.22))}
   .partner-logo.logo-flotfo img{max-height:73px;max-width:215px}
   .partner-logo.logo-ball-guard img,.partner-logo.logo-gws img{max-height:87px;max-width:145px}
-  .partner-logo.logo-flotfo img,.partner-logo.logo-ball-guard img,.partner-logo.logo-gws img{filter:none}
+
   @media(max-width:520px){.partner-logo.logo-flotfo img{max-height:60px}.partner-logo.logo-ball-guard img,.partner-logo.logo-gws img{max-height:70px}}
   @media(max-width:850px){
     .dc-hero{display:flex;flex-direction:column;overflow:visible}
