@@ -278,10 +278,14 @@
     .about-stat strong{font-size:11px;letter-spacing:.08em}
     .about-stat span{font-size:10px;letter-spacing:.04em}
   }
+
+  /* Keep the two headline lines inside the actual editorial column. */
+  .bp-editorial-info .bp-title{width:100%;max-width:100%;min-width:0;box-sizing:border-box;white-space:normal}
+  .bp-editorial-info .bp-title-line{display:block;width:max-content;white-space:nowrap}
 </style>
 </head>
 <body>
-<section class="bp-editorial" id="brand-products" aria-label="Exclusive brand partners"><header class="bp-header"><a class="brand" href="/" aria-label="Sahapie Engineering home"><img src="assets/sahapie-logo-green.png" alt="Sahapie Engineering"></a><nav id="mobileSiteNav" aria-label="Main navigation"><a href="/products/">Products</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/our-projects/">Our Projects</a><a href="/about/">About</a><a href="/contact/">Contact Us</a></nav><div class="lang">EN / TH</div><button class="mobile-menu-toggle" type="button" aria-controls="mobileSiteNav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button></header><div class="bp-editorial-info"><div class="bp-kicker">Sahapie Engineering</div><div class="bp-logo" id="bpLogo"></div><h1 class="bp-title">Exclusive <em>Partnership.</em><br>Engineered for Thailand.</h1><div class="bp-editorial-category"><span>Product category</span><strong id="bpCategory"></strong></div><a class="bp-cta" href="#brand-partners"><i>↗︎</i> Explore brand & products</a><div class="bp-brand-list" id="bpBrandList"></div></div><div class="bp-editorial-visual"><div class="bp-editorial-image" id="bpEditorialImage"></div><div class="bp-visual-card"><div><span class="bp-category">Exclusive Partner in Thailand</span><strong id="bpVisualBrand"></strong></div><div class="bp-visual-controls"><button id="bpPrev" aria-label="Previous brand">←</button><button id="bpNext" aria-label="Next brand">→</button></div></div></div></section><section class="about" id="about">
+<section class="bp-editorial" id="brand-products" aria-label="Exclusive brand partners"><header class="bp-header"><a class="brand" href="/" aria-label="Sahapie Engineering home"><img src="assets/sahapie-logo-green.png" alt="Sahapie Engineering"></a><nav id="mobileSiteNav" aria-label="Main navigation"><a href="/products/">Products</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/our-projects/">Our Projects</a><a href="/about/">About</a><a href="/contact/">Contact Us</a></nav><div class="lang">EN / TH</div><button class="mobile-menu-toggle" type="button" aria-controls="mobileSiteNav" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button></header><div class="bp-editorial-info"><div class="bp-kicker">Sahapie Engineering</div><div class="bp-logo" id="bpLogo"></div><h1 class="bp-title"><span class="bp-title-line">Exclusive <em>Partnership.</em></span><span class="bp-title-line">Engineered for Thailand.</span></h1><div class="bp-editorial-category"><span>Product category</span><strong id="bpCategory"></strong></div><a class="bp-cta" href="#brand-partners"><i>↗︎</i> Explore brand & products</a><div class="bp-brand-list" id="bpBrandList"></div></div><div class="bp-editorial-visual"><div class="bp-editorial-image" id="bpEditorialImage"></div><div class="bp-visual-card"><div><span class="bp-category">Exclusive Partner in Thailand</span><strong id="bpVisualBrand"></strong></div><div class="bp-visual-controls"><button id="bpPrev" aria-label="Previous brand">←</button><button id="bpNext" aria-label="Next brand">→</button></div></div></div></section><section class="about" id="about">
   <div class="about-grid">
     <div class="about-copy reveal">
       <div class="about-kicker">About Sahapie Engineering</div>
@@ -532,5 +536,25 @@ if(reducedMotion){footerItems.forEach(item=>item.classList.add('is-visible'))}el
 </script>
 <script>
 (()=>{const header=document.querySelector('.bp-header'),button=header?.querySelector('.mobile-menu-toggle');if(!button)return;const close=()=>{header.classList.remove('menu-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu')};button.addEventListener('click',()=>{const open=!header.classList.contains('menu-open');header.classList.toggle('menu-open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close menu':'Open menu')});header.querySelectorAll('nav a').forEach(link=>link.addEventListener('click',close));document.addEventListener('keydown',event=>{if(event.key==='Escape')close()})})();
+
+(function(){
+ const title=document.querySelector('.bp-editorial-info .bp-title');
+ if(!title)return;
+ let frame;
+ function fitHeadline(){
+  title.style.removeProperty('font-size');
+  const available=title.clientWidth-6;
+  if(available<=0)return;
+  const base=parseFloat(getComputedStyle(title).fontSize);
+  const lines=[...title.querySelectorAll('.bp-title-line')];
+  const widest=Math.max(...lines.map(line=>line.getBoundingClientRect().width));
+  if(widest>available)title.style.fontSize=(base*available/widest*.99)+'px';
+ }
+ function scheduleFit(){cancelAnimationFrame(frame);frame=requestAnimationFrame(fitHeadline)}
+ scheduleFit();
+ window.addEventListener('resize',scheduleFit);
+ if(window.ResizeObserver)new ResizeObserver(scheduleFit).observe(title.parentElement);
+ if(document.fonts){document.fonts.ready.then(scheduleFit);document.fonts.addEventListener('loadingdone',scheduleFit)}
+})();
 </script>
 </body></html>
