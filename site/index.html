@@ -282,6 +282,13 @@
   /* Keep the two headline lines inside the actual editorial column. */
   .bp-editorial-info .bp-title{width:100%;max-width:100%;min-width:0;box-sizing:border-box;white-space:normal}
   .bp-editorial-info .bp-title-line{display:block;width:max-content;white-space:nowrap}
+
+  /* Keep the brand action close to its category and clear of the tab divider. */
+  .bp-editorial-info .bp-editorial-category{flex-shrink:0}
+  .bp-editorial-info .bp-cta{align-self:flex-start;flex-shrink:0;margin-top:18px;margin-bottom:30px;gap:16px;min-height:40px;line-height:1.4}
+  .bp-editorial-info .bp-cta i{flex:0 0 40px;width:40px;height:40px}
+  .bp-editorial-info .bp-brand-list{flex-shrink:0}
+  @media(max-width:900px){.bp-editorial-info .bp-brand-list{margin-top:0}}
 </style>
 </head>
 <body>
